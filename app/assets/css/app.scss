@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/* RESETS */
+* {
+    box-sizing: border-box;
+}
+
+body, figure {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* GLOBAL STYLE */
+:root {
+    --blue: #57B2EB;
+    --lightGrey: #F5F5F5;
+    --grey: #6f6f6f;
+    --darkGrey: #404040;
+    --blueGrey: #C4D1DB;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--lightGrey);
+    color: var(--darkGrey);
+    font-weight: 300;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 300;
+    padding-left: 0.5em;
+    padding-top: 0.3em;
+}
+
+.margin-top-2 {
+    margin-top: 2em;
+}
+
+.margin-top-1 {
+    margin-top: 1em;
+}
+
+.margin-bottom-2 {
+    margin-bottom: 2em;
+}
+
+.margin-left-1 {
+    margin-left: 1.5em;
+}
+
+.margin-right-1 {
+    margin-right: 1.5em;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 0.6em 1.5em;
+    width: 100%;
+    display: inline-block;
+}
+
+.btn-primary {
+    border: 1px dashed var(--blueGrey);
+    color: var(--grey);
+    background-color: #fff;
+}
+
+.project {
+    border-radius: 8px;
+    padding: 0 0.5em;
+    color: #fff;
+    display: inline-block;
+}
+
+i {
+    color: var(--blueGrey);
+    margin-right: 0.5em;
+    margin-left: 0;
+}
+
+p {
+    font-size: 16px;
+}
+
+hr {
+    margin: inherit 0.5em;
+    border: none;
+    height: 1px;
+    background-color: var(--blueGrey);
+}
+
+/* HEADER */
+header {
+    height: 50px;
+    background-color: var(--blue);
+    color: #fff;
+}
+
+/* SECTION PRINCIPALE */
+section {
+    padding: 0 0.5em;
+}
+
+.number {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.header-data {
+    display: none;
+
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 0.3em 1.5em;
+    background-color: #fff;
+}
+
+.add-task .btn {
+    padding: 1em 1.5em;
+}
+
+.data-label {
+    display: inline-block;
+}
+
+.delete {
+    color: red;
+}
+
+.task-data, .project-data, .start-data, .end-data, .check-data, .action-data {
+    padding: 0.5em 0;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px){
+    .header-data {
+        display: flex;
+    }
+
+    .task {
+        flex-direction: row;
+        padding: 1em 1.5em;
+    }
+
+    .task-label, .task-data {
+        width: 30%;
+        padding: 0;
+    }
+    
+    .project-label, .project-data, .start-label, .start-data, .end-label, .end-data, .check-label, .check-data {
+        width: 15%;
+        padding: 0;
+
+    }
+    
+    .action-label, .action-data {
+        width: 10%;
+        padding: 0;
+    }
+    
+    .data-label {
+        display: none;
+    }    
+
+}

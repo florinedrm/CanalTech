@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Outils de saisie de tâches {% endblock %}
+
+{% block body %}
+
+<section class="margin-top-2">
+    <div class="margin-bottom-2">
+        <a href="" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter un projet</a>
+    </div>
+    <div class="filter margin-left-1 margin-bottom-2">
+        Filtres
+    </div>
+    <div class="stats margin-left-1">
+        <div><span class="number">17</span> tâches effectuées</div>
+        <div>Temps total des tâches : <span class="number">65 heures</span></div>
+        <div>Temps moyen de travail par jour : <span class="number">7 heures</span></div>
+    </div>
+    <hr>
+    <div class="data">
+        <div class="header-data margin-left-1 margin-right-1">
+            <div class="task-label">
+                Tâche
+            </div>
+            <div class="project-label">
+                Projet
+            </div>
+            <div class="start-label">
+                Date de début
+            </div>
+            <div class="end-label">
+                Date de fin
+            </div>
+            <div class="check-label">
+                Facturée
+            </div>
+            <div class="action-label">
+                Action
+            </div>
+        </div>
+        <div class="add-task margin-top-1">
+            <a href="" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter une nouvelle tâche</a>   
+        </div>
+        <div class="task margin-top-1">
+            <div class="task-data">
+                <div class="data-label">Tâche :</div>
+                <strong>Dev menu</strong>
+            </div>
+            <div class="project-data">
+                <div class="data-label">Projet :</div>
+                <div class="project" style="background-color: #02A7A0">
+                    Site vitrine
+                </div>
+            </div>
+            <div class="start-data">
+                <div class="data-label">Début :</div>
+                15 mars 2021
+            </div>
+            <div class="end-data">
+                <div class="data-label">Fin :</div>
+                25 mars 2021
+            </div>
+            <div class="check-data">
+                <div class="data-label">Facturée :</div>
+                X
+            </div>
+            <div class="action-data">
+                <div class="data-label">Action :</div>
+                <a href="" class="delete">Supprimer</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
