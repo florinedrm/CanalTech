@@ -41,33 +41,36 @@
         <div class="add-task margin-top-1">
             <a href="" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter une nouvelle tâche</a>   
         </div>
-        <div class="task margin-top-1">
-            <div class="task-data">
-                <div class="data-label">Tâche :</div>
-                <strong>Dev menu</strong>
-            </div>
-            <div class="project-data">
-                <div class="data-label">Projet :</div>
-                <div class="project" style="background-color: #02A7A0">
-                    Site vitrine
+
+        {% for task in tasks %}
+            <div class="task margin-top-1">
+                <div class="task-data">
+                    <div class="data-label">Tâche :</div>
+                    <strong>{{ task.name }}</strong>
+                </div>
+                <div class="project-data">
+                    <div class="data-label">Projet :</div>
+                    <div class="project" style="background-color: {{ task.project.color }}">
+                        {{ task.project.name }}
+                    </div>
+                </div>
+                <div class="start-data">
+                    <div class="data-label">Début :</div>
+                    {{ task.startAt|date("j M Y") }}
+                </div>
+                <div class="end-data">
+                    <div class="data-label">Fin :</div>
+                    {{ task.endAt|date("j M Y") }}
+                </div>
+                <div class="check-data">
+                    <div class="data-label">Facturée :</div>
+                    X
+                </div>
+                <div class="action-data">
+                    <a href="" class="delete">Supprimer</a>
                 </div>
             </div>
-            <div class="start-data">
-                <div class="data-label">Début :</div>
-                15 mars 2021
-            </div>
-            <div class="end-data">
-                <div class="data-label">Fin :</div>
-                25 mars 2021
-            </div>
-            <div class="check-data">
-                <div class="data-label">Facturée :</div>
-                X
-            </div>
-            <div class="action-data">
-                <a href="" class="delete">Supprimer</a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
 
