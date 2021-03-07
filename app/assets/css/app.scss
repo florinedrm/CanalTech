@@ -76,6 +76,21 @@ h1 {
     background-color: #fff;
 }
 
+.btn-secondary {
+    color: var(--darkGrey);
+    background-color: var(--blueGrey);
+}
+
+.btn-action {
+    color: #fff;
+    background-color: var(--blue);
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
 .project {
     border-radius: 8px;
     padding: 0 0.5em;
@@ -165,7 +180,6 @@ section {
     .project-label, .project-data, .start-label, .start-data, .end-label, .end-data, .check-label, .check-data {
         width: 15%;
         padding: 0;
-
     }
     
     .action-label, .action-data {
@@ -181,4 +195,7 @@ section {
         display: inline;
     }
 
+    button.btn, .action .btn {
+        width: initial;
+    }
 }

@@ -3,5 +3,15 @@
 {% block title %}{{parent()}} - Création d'un projet{% endblock %}
 
 {% block body %}
-Formulaire de création de projet
+
+<h2>Nouveau projet</h2>
+
+{{ form_start(form) }}
+{{ form_row(form.name) }}
+{{ form_row(form.color) }}
+<div class="action">
+    <a href="{{ path('main_home') }}" class="btn btn-secondary">Annuler</a>
+    <button type="submit" class="btn btn-action">Créer</button>    
+{{ form_end(form) }}
+
 {% endblock %}

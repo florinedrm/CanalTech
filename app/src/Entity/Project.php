@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\ProjectRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProjectRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Project
 {
@@ -19,11 +22,13 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=40)
+     * @Assert\NotBlank(message="Ce champs doit être rempli.")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=7)
+     * @Assert\NotBlank(message="Ce champs doit être rempli.")
      */
     private $color;
 
@@ -31,11 +36,6 @@ class Project
      * @ORM\Column(type="datetime")
      */
     private $created_at;
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-    }
 
     public function getId(): ?int
     {
@@ -76,5 +76,13 @@ class Project
         $this->created_at = $created_at;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function initCreatedAt()
+    {
+        $this->setCreatedAt( new DateTime() );
     }
 }

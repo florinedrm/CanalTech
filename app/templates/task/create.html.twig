@@ -3,5 +3,18 @@
 {% block title %}{{parent()}} - Création d'une tâche {% endblock %}
 
 {% block body %}
-Formulaire de création d'une tâche
+
+<h2>Nouvelle tâche</h2>
+
+{{ form_start(form) }}
+{{ form_row(form.name) }}
+{{ form_row(form.startAt) }}
+{{ form_row(form.endAt) }}
+{{ form_row(form.project) }}
+<div class="action">
+    <a href="{{ path('main_home') }}" class="btn btn-secondary">Annuler</a>
+    <button type="submit" class="btn btn-action">Créer</button>    
+</div>
+{{ form_end(form) }}
+
 {% endblock %}

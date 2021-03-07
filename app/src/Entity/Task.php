@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
+use DateTime;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TaskRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Task
 {
@@ -19,16 +22,21 @@ class Task
 
     /**
      * @ORM\Column(type="string", length=120)
+     * @Assert\NotBlank(message="Ce champs doit être rempli.")
      */
     private $name;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank(message="Ce champs doit être rempli.")
+     * @Assert\GreaterThan("today", message="Vous devez choisir une date à venir.")
      */
     private $start_at;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank(message="Ce champs doit être rempli.")
+     * @Assert\GreaterThan(propertyPath="startAt", message="Vous devez choisir une date supérieure à la date de début.")
      */
     private $end_at;
 
@@ -129,5 +137,13 @@ class Task
         $this->project = $project;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function initCreatedAt()
+    {
+        $this->setCreatedAt( new DateTime() );
     }
 }
