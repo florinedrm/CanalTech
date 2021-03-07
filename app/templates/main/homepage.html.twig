@@ -6,7 +6,7 @@
 
 <section class="margin-top-2">
     <div class=" add-project margin-bottom-2">
-        <a href="" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter un projet</a>
+        <a href="{{ path('project_create') }}" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter un projet</a>
     </div>
     <div class="filter margin-left-1 margin-bottom-2">
         Filtres
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="add-task margin-top-1">
-            <a href="" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter une nouvelle tâche</a>   
+            <a href="{{ path('task_create') }}" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter une nouvelle tâche</a>   
         </div>
 
         {% for task in tasks %}
