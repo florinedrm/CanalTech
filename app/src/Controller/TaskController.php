@@ -43,4 +43,21 @@ class TaskController extends AbstractController
             'form' => $form->createView()
         ));
     }
+
+    /**
+    * @Route("/supprimer/{id}", name="delete", requirements={"id"="\d+"})
+    */
+    public function delete($id): Response
+    {
+        $task = $this->em->getRepository(Task::class)->find($id);
+
+        $this->em->remove($task);
+        $this->em->flush();
+
+        $this->addFlash('success',"La tâche a bien été supprimée.");
+
+        return $this->redirectToRoute('main_home', array(
+            'task' => $task
+        ));
+    }
 }

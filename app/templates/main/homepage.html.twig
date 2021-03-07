@@ -67,7 +67,7 @@
                     X
                 </div>
                 <div class="action-data">
-                    <a href="" class="delete">Supprimer</a>
+                    <a href="{{ path('task_delete', {id: task.id}) }}" class="delete">Supprimer</a>
                 </div>
             </div>
         {% endfor %}
