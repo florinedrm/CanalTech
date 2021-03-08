@@ -90,10 +90,13 @@
                 {# Start Toogle Invoiced #}
                 <div class="check-data">
                     <div class="data-label">Facturée :</div>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
+                    <form action="{{ path('task_update', {id: task.id}) }}">
+                        <label class="switch">
+                            <input type="checkbox" {{ task.invoiced == 1 ? "checked" : ""}}>
+                            <span class="slider round"></span>
+                        </label>
+                        <button type="submit" class="btn btn-action">ok</button>
+                    </form>
                 </div>
                 {# End Toogle Invoiced #}
 

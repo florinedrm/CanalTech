@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
+use App\Service\TaskService;
+use App\Repository\TaskRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,10 +18,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class TaskController extends AbstractController
 {
     private $em;
+    private $taskService;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, TaskService $taskService)
     {
         $this->em = $em;
+        $this->taskService = $taskService;
     }
 
     /**
@@ -47,11 +51,21 @@ class TaskController extends AbstractController
     }
 
     /**
+    * @Route("/modifier/{id}", name="update", requirements={"id"="\d+"})
+    */
+    public function update(Request $request, $id): Response
+    {
+        $task = $this->taskService->getOne($id);
+
+        return $this->redirectToRoute('main_home');
+    }
+
+    /**
     * @Route("/supprimer/{id}", name="delete", requirements={"id"="\d+"})
     */
     public function delete($id): Response
     {
-        $task = $this->em->getRepository(Task::class)->find($id);
+        $task = $this->taskService->getOne($id);
 
         $this->em->remove($task);
         $this->em->flush();

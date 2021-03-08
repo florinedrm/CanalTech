@@ -48,6 +48,14 @@ input[type=color] {
     width: 5em;
 }
 
+input[type=time] {
+    width: 7em;
+}
+
+input[type=date] {
+    width: 13em;
+}
+
 /* ---------- BUTTON ---------- */
 button {
     border: transparent;
