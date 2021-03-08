@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\TaskService;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,12 +21,18 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="main_home")
      */
-    public function home(): Response
+    public function home(Request $request): Response
     {
-        $tasks = $this->taskService->getAll();
+        // Filtres
+        $sortProject = $request->query->get('sortProject');
+
+        $tasks = $this->taskService->buildResult($sortProject);
+
+        $total = $this->taskService->getTotalInvoiced();
 
         return $this->render('main/homepage.html.twig', array(
             'tasks' => $tasks,
+            'total' => $total
         ));
     }
 }

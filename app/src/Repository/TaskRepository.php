@@ -19,6 +19,30 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    public function findTotalInvoiced()
+    {
+        $stmt = $this->createQueryBuilder('t');
+        
+        $stmt->select('COUNT(t)');
+        $stmt->where('t.invoiced = 1');
+
+        return $stmt->getQuery()->getSingleScalarResult();
+    }
+
+    public function filter($sortProject)
+    {
+        $stmt = $this->createQueryBuilder('t');
+
+        if(!empty($sortProject))
+        {
+            $stmt->leftJoin('t.project', 'p');
+            $stmt->where('p.name LIKE :sort');
+            $stmt->setParameter('sort', $sortProject);
+        }
+
+        return $stmt->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Task[] Returns an array of Task objects
     //  */

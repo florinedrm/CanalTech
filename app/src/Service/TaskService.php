@@ -12,9 +12,14 @@ class TaskService {
         $this->repository = $repository;
     }
 
-    public function getAll()
+    public function getTotalInvoiced()
     {
-        return $this->repository->findAll();
+        return $this->repository->findTotalInvoiced();
+    }
+
+    public function buildResult($project)
+    {
+        return $this->repository->filter($project);
     }
 
 }

@@ -36,6 +36,8 @@ class TaskController extends AbstractController
             $this->em->persist($task);
             $this->em->flush();
 
+            $this->addFlash('success',"La tâche a bien été créée.");
+
             return $this->redirectToRoute('main_home');
         }
 
