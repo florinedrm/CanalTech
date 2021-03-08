@@ -9,6 +9,7 @@ Encore
     .setPublicPath('/build')
 
     .addEntry('app', './assets/js/app.js')
+    .addEntry('form', './assets/js/components/form.js')
 
 
     .splitEntryChunks()

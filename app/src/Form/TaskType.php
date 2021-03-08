@@ -22,18 +22,19 @@ class TaskType extends AbstractType
             ->add('startAt', DateTimeType::class, array(
                 'label' => 'Date de début*',
                 'date_widget' => 'single_text',
+                'invalid_message' => 'La date de début est invalide.',
                 'time_widget' => 'choice',
                 'minutes' => range(0, 30, 30),
             ))
             ->add('endAt', DateTimeType::class, array(
                 'label' => 'Date de fin*',
                 'date_widget' => 'single_text',
+                'invalid_message' => 'La date de fin est invalide.',
                 'time_widget' => 'choice',
                 'minutes' => range(0, 30, 30),
             ))
             ->add('project', null, array(
                 'label' => 'Projet*',
-                'placeholder' => '--- Choisissez un projet existant ---',
                 'choice_label' => 'name',
             ))
         ;

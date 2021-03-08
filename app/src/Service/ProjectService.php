@@ -12,4 +12,8 @@ class ProjectService {
         $this->repository = $repository;
     }
 
+    public function getAll()
+    {
+        return $this->repository->findAll();
+    }
 }

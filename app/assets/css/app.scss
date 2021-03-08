@@ -1,6 +1,8 @@
+/* ----------- FONTS ----------- */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-/* RESETS */
+
+/* ----------- RESETS ----------- */
 * {
     box-sizing: border-box;
 }
@@ -10,8 +12,9 @@ body, figure {
     padding: 0;
 }
 
-nav ul{
+ul{
     list-style: none;
+    padding: 0;
 }
 
 a {
@@ -19,7 +22,10 @@ a {
     color: inherit;
 }
 
-/* GLOBAL STYLE */
+
+/* ----------- GLOBAL STYLE ----------- */
+
+/* Colors */
 :root {
     --blue: #57B2EB;
     --lightGrey: #F5F5F5;
@@ -28,6 +34,7 @@ a {
     --blueGrey: #C4D1DB;
 }
 
+/* Body */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--lightGrey);
@@ -35,6 +42,11 @@ body {
     font-weight: 300;
 }
 
+.display-none {
+    display: none;
+}
+
+/* Text */
 h1 {
     margin: 0;
     font-size: 1.5em;
@@ -43,6 +55,11 @@ h1 {
     padding-top: 0.3em;
 }
 
+p {
+    font-size: 16px;
+}
+
+/* Margin */
 .margin-top-2 {
     margin-top: 2em;
 }
@@ -63,11 +80,13 @@ h1 {
     margin-right: 1.5em;
 }
 
+/* Lien */
 .btn {
     border-radius: 8px;
     padding: 0.6em 1.5em;
     width: 100%;
     display: inline-block;
+    text-align: center;
 }
 
 .btn-primary {
@@ -86,28 +105,14 @@ h1 {
     background-color: var(--blue);
 }
 
-button {
-    border: none;
-    cursor: pointer;
-}
-
-.project {
-    border-radius: 8px;
-    padding: 0 0.5em;
-    color: #fff;
-    display: inline-block;
-}
-
+ /* Icon */
 i {
     color: var(--blueGrey);
     margin-right: 0.5em;
     margin-left: 0;
 }
 
-p {
-    font-size: 16px;
-}
-
+/* Separator */
 hr {
     margin: inherit 0.5em;
     border: none;
@@ -115,26 +120,47 @@ hr {
     background-color: var(--blueGrey);
 }
 
-/* HEADER */
+
+/* ----------- HEADER ----------- */
 header {
     height: 50px;
     background-color: var(--blue);
     color: #fff;
 }
 
-/* SECTION PRINCIPALE */
+
+/* ----------- SECTION ----------- */
 section {
     padding: 0 1em;
 }
+
+/* Project */
+.project {
+    border-radius: 8px;
+    padding: 0 0.5em;
+    color: #fff;
+    display: inline-block;
+}
+
+/* Filter */
+.filter {
+    display: flex;
+}
+
+.filter select {
+    width: initial;
+}
+
+/* Stats */
 
 .number {
     color: var(--blue);
     font-weight: 600;
 }
 
+/* Tasks */
 .header-data {
     display: none;
-
 }
 
 .task {
@@ -147,6 +173,11 @@ section {
 
 .add-task .btn {
     padding: 1em 1.5em;
+    text-align: left;
+}
+
+.add-project .btn {
+    text-align: left;
 }
 
 .data-label {
@@ -161,7 +192,8 @@ section {
     padding: 0.5em 0;
 }
 
-/* RESPONSIVE */
+
+/* ----------- RESPONSIVE ----------- */
 @media (min-width: 768px){
     .header-data {
         display: flex;
@@ -197,5 +229,9 @@ section {
 
     button.btn, .action .btn {
         width: initial;
+    }
+
+    .display-none {
+        display: initial;
     }
 }

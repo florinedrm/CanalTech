@@ -4,13 +4,37 @@
 
 {% block body %}
 
+{# Start Result Filter #}
+{% set sortProject = app.request.query.get('sortProject') %}
+{# End Result Filter#}
+
 <section class="margin-top-2">
     <div class=" add-project margin-bottom-2">
         <a href="{{ path('project_create') }}" class="btn btn-primary"><i class="fas fa-plus"></i>Ajouter un projet</a>
     </div>
+
+    {# Start Filter #}
     <div class="filter margin-left-1 margin-bottom-2">
-        Filtres
+        <div class="display-none margin-right-1">Filtres :</div>
+        <form action="{{ path('main_home') }}" name="form" method="GET">
+            <div class="filter">
+                <div class="margin-right-1">
+                    <select name="sortProject">
+                        <option value="">Tous les projets</option>
+                        {% for project in projects %}
+                            <option value="{{ project.name }}" {{ project.name == sortProject ? "selected" : ""}}>Projet : {{ project.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-action">Rechercher</button>
+                </div>
+    
+            </div>
+        </form>
     </div>
+    {# End Filter #}
+
     <div class="stats margin-left-1">
         <div>Nombre de tâches effectuées : <span class="number">{{ total }}</span></div>
         <div>Temps total des tâches : <span class="number"></span></div>

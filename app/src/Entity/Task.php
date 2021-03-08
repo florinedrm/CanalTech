@@ -22,7 +22,12 @@ class Task
 
     /**
      * @ORM\Column(type="string", length=120)
-     * @Assert\NotBlank(message="Ce champs doit être rempli.")
+     * @Assert\NotBlank(message="Le titre doit être renseigné.")
+     * @Assert\Length(
+     *      min=2,
+     *      max=1200,
+     *      minMessage="Le titre doit contenir au moins {{ limit }} caractères",
+     *      maxMessage="Le titre doit contenir au maximum {{ limit }} caractères")
      */
     private $name;
 

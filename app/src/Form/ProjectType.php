@@ -20,7 +20,6 @@ class ProjectType extends AbstractType
             ))
             ->add('color', ColorType::class, array(
                 'label' => 'Couleur*',
-                'help' => 'Format hexadécimal',
                 'attr' => array(
                     'value' => '#57B2EB'
                     )

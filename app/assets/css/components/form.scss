@@ -1,0 +1,77 @@
+/* ----------- GLOBAL ---------- */
+input, select {
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--blueGrey);
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #707070;
+}
+
+input:focus-visible, select:focus-visible {
+    outline: 0;
+    border: 1px solid var(--blue);
+}
+
+.help-text {
+    font-size: 14px;
+    color: #909090;
+    margin-top: 0.3em;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-2 {
+    width: 45%;
+}
+
+.error {
+    color: red;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ---------- INPUT ---------- */
+input[type=color] {
+    padding: 0;
+    border: transparent;
+    border-radius: 8px;
+    width: 5em;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+    border: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (min-width: 768px){
+
+    .action {
+        display: flex;
+        justify-content: start;
+    }    
+
+    .col-2 {
+        width: initial;
+        margin-right: 1em;
+    }
+
+    input, select {
+        width: 20em;
+    }
+
+}

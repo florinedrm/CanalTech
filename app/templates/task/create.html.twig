@@ -4,17 +4,51 @@
 
 {% block body %}
 
-<h2>Nouvelle tâche</h2>
+<section class="margin-top-2 margin-left-1 margin-right-1">
+    <h2>Nouveau projet</h2>
 
-{{ form_start(form) }}
-{{ form_row(form.name) }}
-{{ form_row(form.startAt) }}
-{{ form_row(form.endAt) }}
-{{ form_row(form.project) }}
-<div class="action">
-    <a href="{{ path('main_home') }}" class="btn btn-secondary">Annuler</a>
-    <button type="submit" class="btn btn-action">Créer</button>    
-</div>
-{{ form_end(form) }}
+    {# Start Form #}
+    <div class="form">
+        {{ form_start(form) }}
+        <div class="form">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            {{ form_help(form.name) }}
+            <div class="error">
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+        <div class="form">
+            {{ form_label(form.startAt) }}
+            {{ form_widget(form.startAt) }}
+            <div class="error">
+                {{ form_errors(form.startAt) }}
+            </div>
+        </div>
+        <div class="form margin-top-1">
+            {{ form_label(form.endAt) }}
+            {{ form_widget(form.endAt) }}
+            <div class="error">
+                {{ form_errors(form.endAt) }}
+            </div>
+        </div>
+        <div class="form margin-top-1">
+            {{ form_label(form.project) }}
+            {{ form_widget(form.project) }}
+            <div class="error">
+                {{ form_errors(form.project) }}
+            </div>
+        </div>
+        <div class="action margin-top-2">
+            <div class="col-2">
+                <a href="{{ path('main_home') }}" class="btn btn-secondary">Annuler</a>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-action">Créer</button>    
+            </div>
+        {{ form_end(form) }}
+    </div>
+    {# End Form #}
 
+</section>
 {% endblock %}
