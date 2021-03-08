@@ -86,10 +86,17 @@
                     <div class="data-label">Fin :</div>
                     {{ task.endAt|date("j M Y") }}
                 </div>
+
+                {# Start Toogle Invoiced #}
                 <div class="check-data">
                     <div class="data-label">Facturée :</div>
-                    X
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
                 </div>
+                {# End Toogle Invoiced #}
+
                 <div class="action-data">
                     <a href="{{ path('task_delete', {id: task.id}) }}" class="delete">Supprimer</a>
                 </div>

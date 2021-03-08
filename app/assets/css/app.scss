@@ -114,7 +114,8 @@ i {
 
 /* Separator */
 hr {
-    margin: inherit 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     border: none;
     height: 1px;
     background-color: var(--blueGrey);
