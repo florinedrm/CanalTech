@@ -29,7 +29,7 @@ class TaskRepository extends ServiceEntityRepository
         return $stmt->getQuery()->getSingleScalarResult();
     }
 
-    public function filter($sortProject)
+    public function filter($sortProject, $sortTime)
     {
         $stmt = $this->createQueryBuilder('t');
 
@@ -39,6 +39,18 @@ class TaskRepository extends ServiceEntityRepository
             $stmt->where('p.name LIKE :sort');
             $stmt->setParameter('sort', $sortProject);
         }
+
+        switch($sortTime)
+        {
+            case 'Semaine' :
+                break;
+            case 'Mois' :
+                break;
+            case 'Année' :
+                break;
+        }
+
+        $stmt->orderBy('t.start_at', 'ASC');
 
         return $stmt->getQuery()->getResult();
     }

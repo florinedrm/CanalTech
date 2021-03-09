@@ -6,6 +6,7 @@
 
 {# Start Result Filter #}
 {% set sortProject = app.request.query.get('sortProject') %}
+{% set sortTime = app.request.query.get('sortTime') %}
 {# End Result Filter#}
 
 <section class="margin-top-2">
@@ -19,6 +20,14 @@
         <form action="{{ path('main_home') }}" name="form" method="GET">
             <div class="filter">
                 <div class="margin-right-1">
+                    <select name="sortTime">
+                        <option value="">Toutes les tâches</option>
+                        <option value="Semaine" {{ sortTime == "Semaine" ? "selected" : ""}}>Semaine courante</option>
+                        <option value="Mois" {{ sortTime == "Mois" ? "selected" : ""}}>Mois courant</option>
+                        <option value="Année" {{ sortTime == "Année" ? "selected" : ""}}>Année courante</option>
+                    </select>
+                </div>
+                <div class="margin-right-1">
                     <select name="sortProject">
                         <option value="">Tous les projets</option>
                         {% for project in projects %}
@@ -29,7 +38,6 @@
                 <div>
                     <button type="submit" class="btn btn-action">Rechercher</button>
                 </div>
-    
             </div>
         </form>
     </div>

@@ -28,9 +28,10 @@ class MainController extends AbstractController
     {
         // Filters
         $sortProject = $request->query->get('sortProject');
+        $sortTime = $request->query->get('sortTime');
 
         // All tasks or by filters
-        $tasks = $this->taskService->buildResult($sortProject);
+        $tasks = $this->taskService->buildResult($sortProject, $sortTime);
 
         // Number of invoiced tasks
         $total = $this->taskService->getTotalInvoiced();

@@ -22,9 +22,9 @@ class TaskService {
         return $this->repository->findTotalInvoiced();
     }
 
-    public function buildResult($project)
+    public function buildResult($sortProject, $sortTime)
     {
-        return $this->repository->filter($project);
+        return $this->repository->filter($sortProject, $sortTime);
     }
 
 }
