@@ -82,11 +82,11 @@
                 </div>
                 <div class="start-data">
                     <div class="data-label">Début :</div>
-                    {{ task.startAt|format_datetime('medium', 'none', locale='fr') }}
+                    {{ task.startAt|format_datetime('medium', 'short', locale='fr') }}
                 </div>
                 <div class="end-data">
                     <div class="data-label">Fin :</div>
-                    {{ task.endAt|format_datetime('medium', 'none', locale='fr') }}
+                    {{ task.endAt|format_datetime('medium', 'short', locale='fr') }}
                 </div>
 
                 {# Start Toogle Invoiced #}
