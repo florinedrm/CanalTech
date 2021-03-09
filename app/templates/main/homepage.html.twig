@@ -15,29 +15,23 @@
     </div>
 
     {# Start Filter #}
-    <div class="filter margin-left-1 margin-bottom-2">
-        <div class="display-none margin-right-1">Filtres :</div>
+    <div class="filter margin-left-1 margin-right-1 margin-bottom-2">
+        <div class="margin-right-1">Filtres :</div>
         <form action="{{ path('main_home') }}" name="form" method="GET">
             <div class="filter">
-                <div class="margin-right-1">
-                    <select name="sortTime">
-                        <option value="">Toutes les tâches</option>
-                        <option value="Semaine" {{ sortTime == "Semaine" ? "selected" : ""}}>Semaine courante</option>
-                        <option value="Mois" {{ sortTime == "Mois" ? "selected" : ""}}>Mois courant</option>
-                        <option value="Année" {{ sortTime == "Année" ? "selected" : ""}}>Année courante</option>
-                    </select>
-                </div>
-                <div class="margin-right-1">
-                    <select name="sortProject">
-                        <option value="">Tous les projets</option>
-                        {% for project in projects %}
-                            <option value="{{ project.name }}" {{ project.name == sortProject ? "selected" : ""}}>Projet : {{ project.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-action">Rechercher</button>
-                </div>
+                <select name="sortTime">
+                    <option value="">Toutes les tâches</option>
+                    <option value="Semaine" {{ sortTime == "Semaine" ? "selected" : ""}}>Semaine courante</option>
+                    <option value="Mois" {{ sortTime == "Mois" ? "selected" : ""}}>Mois courant</option>
+                    <option value="Année" {{ sortTime == "Année" ? "selected" : ""}}>Année courante</option>
+                </select>
+                <select name="sortProject">
+                    <option value="">Tous les projets</option>
+                    {% for project in projects %}
+                        <option value="{{ project.name }}" {{ project.name == sortProject ? "selected" : ""}}>Projet : {{ project.name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-action">Rechercher</button>
             </div>
         </form>
     </div>
