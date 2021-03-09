@@ -12,32 +12,32 @@
         {{ form_start(form) }}
         <div class="form">
             {{ form_label(form.name) }}
-            {{ form_widget(form.name) }}
-            {{ form_help(form.name) }}
             <div class="error">
                 {{ form_errors(form.name) }}
             </div>
+            {{ form_widget(form.name) }}
+            {{ form_help(form.name) }}
         </div>
         <div class="form">
             {{ form_label(form.startAt) }}
-            {{ form_widget(form.startAt) }}
             <div class="error">
                 {{ form_errors(form.startAt) }}
             </div>
+            {{ form_widget(form.startAt) }}
         </div>
         <div class="form margin-top-1">
             {{ form_label(form.endAt) }}
-            {{ form_widget(form.endAt) }}
             <div class="error">
                 {{ form_errors(form.endAt) }}
             </div>
+            {{ form_widget(form.endAt) }}
         </div>
         <div class="form margin-top-1">
             {{ form_label(form.project) }}
-            {{ form_widget(form.project) }}
             <div class="error">
                 {{ form_errors(form.project) }}
             </div>
+            {{ form_widget(form.project) }}
         </div>
         <div class="action margin-top-2">
             <div class="col-2">

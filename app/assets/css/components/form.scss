@@ -40,6 +40,10 @@ input:focus-visible, select:focus-visible {
     font-size: 14px;
 }
 
+.error ul {
+    margin: 0.2em;
+}
+
 /* ---------- INPUT ---------- */
 input[type=color] {
     padding: 0;

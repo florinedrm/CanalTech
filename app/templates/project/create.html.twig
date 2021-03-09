@@ -12,11 +12,11 @@
         {{ form_start(form) }}
         <div class="form">
             {{ form_label(form.name) }}
-            {{ form_widget(form.name) }}
-            {{ form_help(form.name) }}
             <div class="error">
                 {{ form_errors(form.name) }}
             </div>
+            {{ form_widget(form.name) }}
+            {{ form_help(form.name) }}
         </div>
         <div class="form">
             {{ form_label(form.color) }}

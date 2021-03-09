@@ -17,7 +17,7 @@ class TaskType extends AbstractType
         $builder
             ->add('name', TextType::class, array(
                 'label' => 'Titre*',
-                'help' => 'jusqu\'à 120 caractères'
+                'help' => 'De 2 à 120 caractères.'
             ))
             ->add('startAt', DateTimeType::class, array(
                 'label' => 'Date de début*',

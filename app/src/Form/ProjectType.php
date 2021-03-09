@@ -16,7 +16,7 @@ class ProjectType extends AbstractType
         $builder
             ->add('name', TextType::class, array(
                 'label' => 'Titre*',
-                'help' => 'Jusqu\'à 40 caractères'
+                'help' => 'De 2 à 40 caractères.'
             ))
             ->add('color', ColorType::class, array(
                 'label' => 'Couleur*',
